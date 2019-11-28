@@ -5,6 +5,12 @@ public class Calculate {
   public static void main(String[] args) {
     Calculate calc = new Calculate(Integer.valueOf(args[0]), Integer.valueOf(args[1]));
     System.out.print(String.format("Sum: %d\nMultiply: %d\nPow: %d\nDivision: %f\n", calc.sum(), calc.multiply(), calc.pow(), calc.division()));
+    Calculator calculator = new Calculator();
+    calculator.add(1,2,3,4,5,6);
+    System.out.println(calculator.getResult());
+    calculator.cleanResult();
+    calculator.add(10,9,8,7);
+    System.out.println(calculator.getResult());
   }
   
   public Calculate(int first, int second) {
