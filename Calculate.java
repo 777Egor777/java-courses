@@ -1,40 +1,34 @@
 public class Calculate {
-  private final int first;
-  private final int second;
+  private final double first;
+  private final double second;
   
   public static void main(String[] args) {
-    Calculate calc = new Calculate(Integer.valueOf(args[0]), Integer.valueOf(args[1]));
-    System.out.print(String.format("Sum: %d\nMultiply: %d\nPow: %d\nDivision: %f\n", calc.sum(), calc.multiply(), calc.pow(), calc.division()));
-    Calculator calculator = new Calculator();
-    calculator.add(1,2,3,4,5,6);
-    System.out.println(calculator.getResult());
-    calculator.cleanResult();
-    calculator.add(10,9,8,7);
-    System.out.println(calculator.getResult());
+    Calculate calc = new Calculate(args[0], args[1]);
+    System.out.print(String.format("Sum: %f\nMultiply: %f\nPow: %f\nDivision: %f\n", calc.sum(), calc.multiply(), calc.pow(), calc.division()));
   }
   
-  public Calculate(int first, int second) {
-    this.first = first;
-    this.second = second;
+  public Calculate(String first, String second) {
+    this.first = Double.parseDouble(first);
+    this.second = Double.parseDouble(second);
   }
   
-  public int sum() {
+  public double sum() {
     return first + second;
   }
   
-  public int multiply() {
+  public double multiply() {
     return first * second;
   }
   
-  public int pow() {
+  public double pow() {
     int result = 1;
-    for(int i = 0; i < second; ++i) {
+    for(int i = 0; i < (int)second; ++i) {
       result *= first;
     }
     return result;
   }
   
   public double division() {
-    return (double)first / second;
+    return first / second;
   }
 }
